@@ -87,8 +87,8 @@ function createComposerWindow(myComposer) {
   win.updateTimeDisplay = function (time) {
     var text;
     if (time.mode == 'date-range') {
-      text = '<b>From</b> ' + time.startDate.toLocaleString();
-      text += ' <b>Until</b> ' + time.endDate.toLocaleString();
+      text = "<b>From</b> " + time.startDate.toDateString() + " " + time.startDate.toTimeString();
+      text += " <b>Until</b> " + time.endDate.toDateString() + " " + time.endDate.toTimeString();
       text = text.replace(/:00 /g, ' '); // Strip out the seconds
     } else if (time.mode == 'recent') {
       text = 'Now showing the past ' + time.quantity + ' ' + time.units;
@@ -192,15 +192,17 @@ function createCalendarWindow() {
   // Time controls
   var startTimeControl = new Ext.form.TimeField({
     id: 'start-time',
+    format: "G:i",
     increment: 30,
     allowBlank: false,
-    value: '12:00 AM',
+    value: '12:00',
     listeners: {select: calendarSelectionMade, specialkey: ifEnter(calendarSelectionMade)}
   });
   var endTimeControl = new Ext.form.TimeField({
     id: 'end-time',
+    format: "G:i",
     allowBlank: false,
-    value: '11:59 PM',
+    value: '23:59',
     listeners: {select: calendarSelectionMade, specialkey: ifEnter(calendarSelectionMade)}
   });
 

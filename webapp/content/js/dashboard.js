@@ -1177,9 +1177,9 @@ var TimeRange = {
   relativeUntilUnits: 'now',
   // Absolute time range
   startDate: new Date(),
-  startTime: '9:00 AM',
+  startTime: '9:00',
   endDate: new Date(),
-  endTime: '5:00 PM'
+  endTime: '20:00'
 };
 
 function getTimeText() {
@@ -1330,6 +1330,7 @@ function selectAbsoluteTime() {
     fieldLabel: 'Start Time',
     width: 125,
     allowBlank: false,
+    format:"H:i",
     increment: 30,
     value: TimeRange.startTime || ''
   });
@@ -1344,6 +1345,7 @@ function selectAbsoluteTime() {
     fieldLabel: 'End Time',
     width: 125,
     allowBlank: false,
+    format:"H:i",
     increment: 30,
     value: TimeRange.endTime || ''
   });
